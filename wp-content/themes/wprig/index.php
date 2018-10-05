@@ -12,7 +12,23 @@
  * @package veryserious
  */
 
-get_header(); ?>
+$categories = get_the_category();
+
+$header_name	=	'header.php';
+$content_name	=	'content';
+$sidebar_name	=	'sidebar.php';
+$footer_name	=	'sidebar.php';
+
+if ( ! empty( $categories ) ) {
+	$first_category	= 	$categories[0]->name;
+	$header_name	= 	'header-' . $first_category . '.php';
+	$content_name 	= 	'content-' . $first_category;   
+	$sidebar_name	= 	'sidebar-' . $first_category . '.php';
+	$footer_name	= 	'footer-' . $first_category . '.php';
+}
+
+
+get_header( $header_name ); ?>
 
 	<main id="primary" class="site-main">
 
@@ -39,7 +55,9 @@ get_header(); ?>
 			 * If you want to override this in a child theme, then include a file
 			 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 			 */
-			get_template_part( 'template-parts/content', get_post_type() );
+			
+			get_template_part( 'template-parts/' . $content_name, get_post_type() );
+			
 
 		endwhile;
 
@@ -49,7 +67,7 @@ get_header(); ?>
 
 	else :
 
-		get_template_part( 'template-parts/content', 'none' );
+		get_template_part( 'template-parts/' . $content_name, 'none' );
 
 	endif;
 	?>
@@ -57,5 +75,5 @@ get_header(); ?>
 	</main><!-- #primary -->
 
 <?php
-get_sidebar();
-get_footer();
+get_sidebar( $sidebar_name );
+get_footer( $footer_name );
