@@ -29,12 +29,13 @@ $content_name	=	'content';
 $sidebar_name	=	'sidebar.php';
 $footer_name	=	'sidebar.php';
 
+$first_category	= 	$categories[0]->name;
+
 if ( ! empty( $categories ) ) {
-	$first_category	= 	$categories[0]->name;
-	$header_name	= 	'header-' . $first_category . '.php';
+	$header_name	= 	$first_category;
 	$content_name 	= 	'content-' . $first_category;   
-	$sidebar_name	= 	'sidebar-' . $first_category . '.php';
-	$footer_name	= 	'footer-' . $first_category . '.php';
+	$sidebar_name	= 	$first_category;
+	$footer_name	= 	$first_category;
 }
 
 
@@ -85,5 +86,8 @@ get_header( $header_name ); ?>
 	</main><!-- #primary -->
 
 <?php
-get_sidebar( $sidebar_name );
-get_footer( $footer_name );
+
+if ( ! $first_category = 'nineteeneighty' ) { 
+	get_sidebar( $sidebar_name );
+	get_footer( $footer_name );
+}
