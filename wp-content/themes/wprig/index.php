@@ -12,6 +12,16 @@
  * @package veryserious
  */
 
+/*
+* Variables are set as Categories from WP posts.
+* modern: '2010'
+* earlyoughts: '2004'
+* twok: '2000'
+* nineteenninetyfour: '1994'
+* nineteeneighty: '1980'
+*/ 
+
+
 $categories = get_the_category();
 
 $header_name	=	'header.php';
