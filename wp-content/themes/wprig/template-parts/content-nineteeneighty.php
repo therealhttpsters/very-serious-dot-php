@@ -8,7 +8,6 @@
  */
 
 ?>
-<H2>article id="post-<?php the_ID(); ?>" <?php post_class(); ?></H2>
 
 		<?php
 		if ( is_singular() ) :
@@ -48,50 +47,31 @@
 				)
 		);
 
-
-		// strip classes
-		$pattern = '/(<[^>]+) class=".*?"/i';
-		$htmlcontent_1 = 
-			preg_replace(
-				$pattern ,
-				'$1' , 
-				$htmlcontent
-			);
-
-
-		// strip inline styles
-		$pattern = '/(<[^>]+) style=".*?"/i';
-		$htmlcontent_2 = 
-			preg_replace(
-				$pattern ,
-				'$1' , 
-				$htmlcontent_1
-			);
-
-
 		// strip everything BUT the tags here
-		$htmlcontent_3 = 
+		$htmlcontent_0 = 
 			strip_tags( 
-				$htmlcontent_2 , 
-				'<p><br><li><ul><ol><a>' 
+				$htmlcontent , 
+				'<p><br><li><ul><ol><a><h2><h3><h4><h5><h6><i><b><u><em><strong><span>' 
 			);
 
+		$pattern_array = array(
+			array( /* classes */ '/(<[^>]+) class=".*?"/i', '$1' ),
+			array( /* styles */ '/(<[^>]+) style=".*?"/i', '$1' ),
+			array( /* god mode 1 */ '/<([^<\/>]*)>([\s]*?|(?R))<\/\1>/imsU', '' ),
+			array( /* god mode 2 */ '/<([^<\/>]*)>([\s]*?|(?R))<\/\1>/imsU', '' )
+		);
 
-		// disregard tags, acquire acetone for stripping things down
-		// props https://websupporter.net/blog/an-example-of-how-to-remove-empty-html-tags-with-php/
-		$pattern = '/<([^<\/>]*)>([\s]*?|(?R))<\/\1>/imsU';
-		$htmlcontent_final = 
-			preg_replace(
-				$pattern ,
-				'' , 
-					preg_replace(
-						$pattern ,
-						'' , 
-						$htmlcontent_3
-					)
-				);
+		foreach ( $pattern_array as $pattern ) {
+			$htmlcontent_0 = preg_replace( $pattern[0] , $pattern[1], $htmlcontent_0 );
+		}
 		
+		$htmlcontent_final = $htmlcontent_0 . 
+		'<I>This is article <u>post-' . get_the_ID() . '</u>, written with love :-)</I><BR><BR>';
+
 		echo $htmlcontent_final;
+
+		// echo 'dank memes never die'; 
+		// die();
 
 		wp_link_pages(
 			array(
