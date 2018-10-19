@@ -24,10 +24,10 @@
 
 $categories = get_the_category();
 
-$header_name	=	'header.php';
+$header_name	=	'header';
 $content_name	=	'content';
-$sidebar_name	=	'sidebar.php';
-$footer_name	=	'sidebar.php';
+$sidebar_name	=	'sidebar';
+$footer_name	=	'sidebar';
 
 $first_category	= 	$categories[0]->name;
 
@@ -52,7 +52,10 @@ get_header( $header_name ); ?>
 		 * This call runs only once on index and archive pages.
 		 * At some point, override functionality should be built in similar to the template part below.
 		 */
-		wp_print_styles( array( 'veryserious-content' ) ); // Note: If this was already done it will be skipped.
+		
+		if ( ! $first_category = 'nineteeneighty' ) { 
+			wp_print_styles( array( 'veryserious-content' ) ); // Note: If this was already done it will be skipped.
+		}
 
 		/* Display the appropriate header when required. */
 		veryserious_index_header();
@@ -86,8 +89,7 @@ get_header( $header_name ); ?>
 	</main><!-- #primary -->
 
 <?php
-
 if ( ! $first_category = 'nineteeneighty' ) { 
 	get_sidebar( $sidebar_name );
-	get_footer( $footer_name );
-}
+} 
+get_footer( $footer_name );

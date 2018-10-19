@@ -10,6 +10,8 @@
  */
 
 ?>
+	<BR>
+	<MARQUEE>
 	<A href="<?php echo esc_url( __( 'https://wordpress.org/', 'veryserious' ) ); ?>">
 		<?php
 		/* translators: %s: CMS name, i.e. WordPress. */
@@ -21,7 +23,7 @@
 			/* translators: 1: Theme name, 2: Theme author. */
 			printf( esc_html__( 'Theme: %1$s by %2$s.', 'veryserious' ), '<a href="' . esc_url( 'https://github.com/veryserious/veryserious/' ) . '">Very Serious</a>', 'the contributors' );
 		?>
-	
+	</MARQUEE>
 <?php wp_footer(); ?>
 
 </BODY>
