@@ -9,22 +9,42 @@
  * @package veryserious
  */
 
-function my_enqueue_stuff() {
+function dq_maker($dscript_array, $dstyle_array) {
+	//var_dump($dscript_array);
+	//die;
+	return function () {
+		foreach ( $dscript_array as $script_item ) {
+			wp_dequeue_script ( $script_item );
+		}
 
-	wp_dequeue_script ( 'admin-bar' );
-	wp_dequeue_script ( 'veryserious-navigation ' );
-	wp_dequeue_script ( 'veryserious-skip-link-focus-fix ' );
-	wp_dequeue_script ( 'comment-reply ' );
-	wp_dequeue_script ( 'veryserious-lazy-load-images ' );
+		foreach ( $dstyle_array as $style_item ) {
+			wp_dequeue_style ( $style_item );
+		}		
+	};
 
-	wp_dequeue_style ( 'veryserious-content' );
-	wp_dequeue_style ( 'admin-bar' );
-	wp_dequeue_style ( 'wp-block-library' );
-	wp_dequeue_style ( 'veryserious-fonts' );
-	wp_dequeue_style ( 'veryserious-base-style' );
-	wp_dequeue_style ( 'current-template-style' );
 }
-add_action( 'wp_enqueue_scripts', 'my_enqueue_stuff', 10 );
+
+$dscript_array = [
+	'admin-bar',
+	'veryserious-navigation',
+	'veryserious-skip-link-focus-fix',
+	'comment-reply',
+	'veryserious-lazy-load-images',
+	'wp-embed'
+];
+
+$dstyle_array = [
+	'veryserious-content',
+	'admin-bar',
+	'wp-block-library',
+	'veryserious-fonts',
+	'veryserious-base-style',
+	'current-template-style'
+];
+
+
+
+add_action( 'wp_enqueue_scripts', dq_maker($dstyle_array, $dstyle_array), 10, 1 );
 
 ?>
 <!doctype html>
