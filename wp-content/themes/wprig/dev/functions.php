@@ -1,10 +1,10 @@
 <?php
 /**
- * WP Rig functions and definitions
+ * Very Serious functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package wprig
+ * @package veryserious
  */
 
 /**
@@ -14,14 +14,14 @@
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function wprig_setup() {
+function veryserious_setup() {
 	/*
 		* Make theme available for translation.
 		* Translations can be filed in the /languages/ directory.
-		* If you're building a theme based on wprig, use a find and replace
-		* to change 'wprig' to the name of your theme in all the template files.
+		* If you're building a theme based on veryserious, use a find and replace
+		* to change 'veryserious' to the name of your theme in all the template files.
 		*/
-	load_theme_textdomain( 'wprig', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'veryserious', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -44,7 +44,7 @@ function wprig_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'primary' => esc_html__( 'Primary', 'wprig' ),
+			'primary' => esc_html__( 'Primary', 'veryserious' ),
 		)
 	);
 
@@ -65,7 +65,7 @@ function wprig_setup() {
 	// Set up the WordPress core custom background feature.
 	add_theme_support(
 		'custom-background', apply_filters(
-			'wprig_custom_background_args', array(
+			'veryserious_custom_background_args', array(
 				'default-color' => 'ffffff',
 				'default-image' => '',
 			)
@@ -103,47 +103,47 @@ function wprig_setup() {
 	 */
 	add_theme_support( 'editor-color-palette', array(
 		array(
-			'name'  => __( 'Dusty orange', 'wprig' ),
+			'name'  => __( 'Dusty orange', 'veryserious' ),
 			'slug'  => 'dusty-orange',
 			'color' => '#ed8f5b',
 		),
 		array(
-			'name'  => __( 'Dusty red', 'wprig' ),
+			'name'  => __( 'Dusty red', 'veryserious' ),
 			'slug'  => 'dusty-red',
 			'color' => '#e36d60',
 		),
 		array(
-			'name'  => __( 'Dusty wine', 'wprig' ),
+			'name'  => __( 'Dusty wine', 'veryserious' ),
 			'slug'  => 'dusty-wine',
 			'color' => '#9c4368',
 		),
 		array(
-			'name'  => __( 'Dark sunset', 'wprig' ),
+			'name'  => __( 'Dark sunset', 'veryserious' ),
 			'slug'  => 'dark-sunset',
 			'color' => '#33223b',
 		),
 		array(
-			'name'  => __( 'Almost black', 'wprig' ),
+			'name'  => __( 'Almost black', 'veryserious' ),
 			'slug'  => 'almost-black',
 			'color' => '#0a1c28',
 		),
 		array(
-			'name'  => __( 'Dusty water', 'wprig' ),
+			'name'  => __( 'Dusty water', 'veryserious' ),
 			'slug'  => 'dusty-water',
 			'color' => '#41848f',
 		),
 		array(
-			'name'  => __( 'Dusty sky', 'wprig' ),
+			'name'  => __( 'Dusty sky', 'veryserious' ),
 			'slug'  => 'dusty-sky',
 			'color' => '#72a7a3',
 		),
 		array(
-			'name'  => __( 'Dusty daylight', 'wprig' ),
+			'name'  => __( 'Dusty daylight', 'veryserious' ),
 			'slug'  => 'dusty-daylight',
 			'color' => '#97c0b7',
 		),
 		array(
-			'name'  => __( 'Dusty sun', 'wprig' ),
+			'name'  => __( 'Dusty sun', 'veryserious' ),
 			'slug'  => 'dusty-sun',
 			'color' => '#eee9d1',
 		),
@@ -164,26 +164,26 @@ function wprig_setup() {
 	 */
 	add_theme_support( 'editor-font-sizes', array(
 		array(
-			'name'      => __( 'small', 'wprig' ),
-			'shortName' => __( 'S', 'wprig' ),
+			'name'      => __( 'small', 'veryserious' ),
+			'shortName' => __( 'S', 'veryserious' ),
 			'size'      => 16,
 			'slug'      => 'small',
 		),
 		array(
-			'name'      => __( 'regular', 'wprig' ),
-			'shortName' => __( 'M', 'wprig' ),
+			'name'      => __( 'regular', 'veryserious' ),
+			'shortName' => __( 'M', 'veryserious' ),
 			'size'      => 20,
 			'slug'      => 'regular',
 		),
 		array(
-			'name'      => __( 'large', 'wprig' ),
-			'shortName' => __( 'L', 'wprig' ),
+			'name'      => __( 'large', 'veryserious' ),
+			'shortName' => __( 'L', 'veryserious' ),
 			'size'      => 36,
 			'slug'      => 'large',
 		),
 		array(
-			'name'      => __( 'larger', 'wprig' ),
-			'shortName' => __( 'XL', 'wprig' ),
+			'name'      => __( 'larger', 'veryserious' ),
+			'shortName' => __( 'XL', 'veryserious' ),
 			'size'      => 48,
 			'slug'      => 'larger',
 		),
@@ -202,7 +202,7 @@ function wprig_setup() {
 	) );
 
 }
-add_action( 'after_setup_theme', 'wprig_setup' );
+add_action( 'after_setup_theme', 'veryserious_setup' );
 
 /**
  * Set the embed width in pixels, based on the theme's design and stylesheet.
@@ -210,26 +210,26 @@ add_action( 'after_setup_theme', 'wprig_setup' );
  * @param array $dimensions An array of embed width and height values in pixels (in that order).
  * @return array
  */
-function wprig_embed_dimensions( array $dimensions ) {
+function veryserious_embed_dimensions( array $dimensions ) {
 	$dimensions['width'] = 720;
 	return $dimensions;
 }
-add_filter( 'embed_defaults', 'wprig_embed_dimensions' );
+add_filter( 'embed_defaults', 'veryserious_embed_dimensions' );
 
 /**
  * Register Google Fonts
  */
-function wprig_fonts_url() {
+function veryserious_fonts_url() {
 	$fonts_url = '';
 
 	/**
 	 * Translator: If Roboto Sans does not support characters in your language, translate this to 'off'.
 	 */
-	$roboto = esc_html_x( 'on', 'Roboto Condensed font: on or off', 'wprig' );
+	$roboto = esc_html_x( 'on', 'Roboto Condensed font: on or off', 'veryserious' );
 	/**
 	 * Translator: If Crimson Text does not support characters in your language, translate this to 'off'.
 	 */
-	$crimson_text = esc_html_x( 'on', 'Crimson Text font: on or off', 'wprig' );
+	$crimson_text = esc_html_x( 'on', 'Crimson Text font: on or off', 'veryserious' );
 
 	$font_families = array();
 
@@ -263,8 +263,8 @@ function wprig_fonts_url() {
  * @param string $relation_type  The relation type the URLs are printed.
  * @return array $urls           URLs to print for resource hints.
  */
-function wprig_resource_hints( $urls, $relation_type ) {
-	if ( wp_style_is( 'wprig-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+function veryserious_resource_hints( $urls, $relation_type ) {
+	if ( wp_style_is( 'veryserious-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
 		$urls[] = array(
 			'href' => 'https://fonts.gstatic.com',
 			'crossorigin',
@@ -273,78 +273,78 @@ function wprig_resource_hints( $urls, $relation_type ) {
 
 	return $urls;
 }
-add_filter( 'wp_resource_hints', 'wprig_resource_hints', 10, 2 );
+add_filter( 'wp_resource_hints', 'veryserious_resource_hints', 10, 2 );
 
 /**
  * Enqueue WordPress theme styles within Gutenberg.
  */
-function wprig_gutenberg_styles() {
+function veryserious_gutenberg_styles() {
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), null );
+	wp_enqueue_style( 'veryserious-fonts', veryserious_fonts_url(), array(), null );
 
 	// Enqueue main stylesheet.
-	wp_enqueue_style( 'wprig-base-style', get_theme_file_uri( '/css/editor-styles.css' ), array(), '20180514' );
+	wp_enqueue_style( 'veryserious-base-style', get_theme_file_uri( '/css/editor-styles.css' ), array(), '20180514' );
 }
-add_action( 'enqueue_block_editor_assets', 'wprig_gutenberg_styles' );
+add_action( 'enqueue_block_editor_assets', 'veryserious_gutenberg_styles' );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function wprig_widgets_init() {
+function veryserious_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'wprig' ),
+		'name'          => esc_html__( 'Sidebar', 'veryserious' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'wprig' ),
+		'description'   => esc_html__( 'Add widgets here.', 'veryserious' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'wprig_widgets_init' );
+add_action( 'widgets_init', 'veryserious_widgets_init' );
 
 /**
  * Enqueue styles.
  */
-function wprig_styles() {
+function veryserious_styles() {
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), null );
+	wp_enqueue_style( 'veryserious-fonts', veryserious_fonts_url(), array(), null );
 
 	// Enqueue main stylesheet.
-	wp_enqueue_style( 'wprig-base-style', get_stylesheet_uri(), array(), '20180514' );
+	wp_enqueue_style( 'veryserious-base-style', get_stylesheet_uri(), array(), '20180514' );
 
 	// Register component styles that are printed as needed.
-	wp_register_style( 'wprig-comments', get_theme_file_uri( '/css/comments.css' ), array(), '20180514' );
-	wp_register_style( 'wprig-content', get_theme_file_uri( '/css/content.css' ), array(), '20180514' );
-	wp_register_style( 'wprig-sidebar', get_theme_file_uri( '/css/sidebar.css' ), array(), '20180514' );
-	wp_register_style( 'wprig-widgets', get_theme_file_uri( '/css/widgets.css' ), array(), '20180514' );
-	wp_register_style( 'wprig-front-page', get_theme_file_uri( '/css/front-page.css' ), array(), '20180514' );
+	wp_register_style( 'veryserious-comments', get_theme_file_uri( '/css/comments.css' ), array(), '20180514' );
+	wp_register_style( 'veryserious-content', get_theme_file_uri( '/css/content.css' ), array(), '20180514' );
+	wp_register_style( 'veryserious-sidebar', get_theme_file_uri( '/css/sidebar.css' ), array(), '20180514' );
+	wp_register_style( 'veryserious-widgets', get_theme_file_uri( '/css/widgets.css' ), array(), '20180514' );
+	wp_register_style( 'veryserious-front-page', get_theme_file_uri( '/css/front-page.css' ), array(), '20180514' );
 }
-add_action( 'wp_enqueue_scripts', 'wprig_styles' );
+add_action( 'wp_enqueue_scripts', 'veryserious_styles' );
 
 /**
  * Enqueue scripts.
  */
-function wprig_scripts() {
+function veryserious_scripts() {
 
 	// If the AMP plugin is active, return early.
-	if ( wprig_is_amp() ) {
+	if ( veryserious_is_amp() ) {
 		return;
 	}
 
 	// Enqueue the navigation script.
-	wp_enqueue_script( 'wprig-navigation', get_theme_file_uri( '/js/navigation.js' ), array(), '20180514', false );
-	wp_script_add_data( 'wprig-navigation', 'async', true );
-	wp_localize_script( 'wprig-navigation', 'wprigScreenReaderText', array(
-		'expand'   => __( 'Expand child menu', 'wprig' ),
-		'collapse' => __( 'Collapse child menu', 'wprig' ),
+	wp_enqueue_script( 'veryserious-navigation', get_theme_file_uri( '/js/navigation.js' ), array(), '20180514', false );
+	wp_script_add_data( 'veryserious-navigation', 'async', true );
+	wp_localize_script( 'veryserious-navigation', 'veryseriousScreenReaderText', array(
+		'expand'   => __( 'Expand child menu', 'veryserious' ),
+		'collapse' => __( 'Collapse child menu', 'veryserious' ),
 	));
 
 	// Enqueue skip-link-focus script.
-	wp_enqueue_script( 'wprig-skip-link-focus-fix', get_theme_file_uri( '/js/skip-link-focus-fix.js' ), array(), '20180514', false );
-	wp_script_add_data( 'wprig-skip-link-focus-fix', 'defer', true );
+	wp_enqueue_script( 'veryserious-skip-link-focus-fix', get_theme_file_uri( '/js/skip-link-focus-fix.js' ), array(), '20180514', false );
+	wp_script_add_data( 'veryserious-skip-link-focus-fix', 'defer', true );
 
 	// Enqueue comment script on singular post/page views only.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -352,7 +352,7 @@ function wprig_scripts() {
 	}
 
 }
-add_action( 'wp_enqueue_scripts', 'wprig_scripts' );
+add_action( 'wp_enqueue_scripts', 'veryserious_scripts' );
 
 /**
  * Custom responsive image sizes.
@@ -385,3 +385,41 @@ require get_template_directory() . '/inc/customizer.php';
  * @link https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/
  */
 require get_template_directory() . '/pluggable/lazyload/lazyload.php';
+
+
+
+class DeQueueQueue {
+/**
+ * DeQueueQueue
+ *
+ * The DeQueueQueue logic allows unloading of core scripts and styles
+ * to make it easier to make HTML spec 1-4 page templates.
+ *
+ * @author     David Nuon
+ * @author     Leo Postovoit
+ * @copyright  1997-2005 The PHP Group
+ * @version    0.0.1
+ * @since      0.0.1
+ */
+
+/*
+ * This anonymous function can be called in custom headers here
+ * to unload a set of queued up scripts and styles.
+ */
+	
+	function __construct( $dscript_array, $dstyle_array ) {
+		$this->dscript_array = $dscript_array;
+		$this->dstyle_array = $dstyle_array; 
+	}
+
+	function __invoke( $name ) {
+		foreach ( $this->dscript_array as $script_item ) {
+			wp_dequeue_script ( $script_item );
+		}
+
+		foreach ( $this->dstyle_array as $style_item ) {
+			wp_dequeue_style ( $style_item );
+		}	
+	}	
+	
+}
