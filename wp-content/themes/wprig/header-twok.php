@@ -12,18 +12,18 @@
  // here is a list of scripts to be unloaded
  $dscript_array = [
 //	'admin-bar',
-	'veryserious-navigation',
-	'veryserious-skip-link-focus-fix',
-	'comment-reply',
+//	'veryserious-navigation',
+//	'veryserious-skip-link-focus-fix',
+//	'comment-reply',
 	'veryserious-lazy-load-images',
-	'wp-embed'
+//	'wp-embed'
 ];
 
 // here is a list of scripts to be unloaded
 $dstyle_array = [
 //	'veryserious-content',
-	'admin-bar',
-	'wp-block-library' //,
+//	'admin-bar',
+//	'wp-block-library',
 //	'veryserious-fonts',
 //	'veryserious-base-style',
 //	'current-template-style'
@@ -49,8 +49,10 @@ function EnQueueQueue()  {
 			
 		// Add new JS, cache busters to go!
 		// jQuery stuff is required this time around
-		wp_enqueue_script('jQuery-1.12.4', 'https://code.jquery.com/jquery-1.12.4.js');
-		wp_enqueue_script('jQueryUI-1.12.1', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js');
+		wp_enqueue_script('jQuery-1.12.4', 
+		'https://code.jquery.com/jquery-1.12.4.js');
+		wp_enqueue_script('jQueryUI-1.12.1', 
+		'https://code.jquery.com/ui/1.12.1/jquery-ui.js');
 		
 		$app = '/js/2004.js'; // Local path in theme
 			$appURI = get_stylesheet_directory_uri() . $app;
@@ -74,10 +76,6 @@ add_action( 'wp_enqueue_scripts', 'EnQueueQueue' );
 	<?php endif; ?>
 
 	<?php wp_head(); ?>
-
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 
 </head>
 
