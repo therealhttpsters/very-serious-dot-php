@@ -385,3 +385,41 @@ require get_template_directory() . '/inc/customizer.php';
  * @link https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/
  */
 require get_template_directory() . '/pluggable/lazyload/lazyload.php';
+
+
+
+class DeQueueQueue {
+/**
+ * DeQueueQueue
+ *
+ * The DeQueueQueue logic allows unloading of core scripts and styles
+ * to make it easier to make HTML spec 1-4 page templates.
+ *
+ * @author     David Nuon
+ * @author     Leo Postovoit
+ * @copyright  1997-2005 The PHP Group
+ * @version    0.0.1
+ * @since      0.0.1
+ */
+
+/*
+ * This anonymous function can be called in custom headers here
+ * to unload a set of queued up scripts and styles.
+ */
+	
+	function __construct( $dscript_array, $dstyle_array ) {
+		$this->dscript_array = $dscript_array;
+		$this->dstyle_array = $dstyle_array; 
+	}
+
+	function __invoke( $name ) {
+		foreach ( $this->dscript_array as $script_item ) {
+			wp_dequeue_script ( $script_item );
+		}
+
+		foreach ( $this->dstyle_array as $style_item ) {
+			wp_dequeue_style ( $style_item );
+		}	
+	}	
+	
+}
