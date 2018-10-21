@@ -12,38 +12,11 @@
  * @package veryserious
  */
 
-/*
-* Variables are set as Categories from WP posts.
-* modern: '2010'
-* earlyoughts: '2004'
-* twok: '2000'
-* nineteenninetyfour: '1994'
-* nineteeneighty: '1980'
-*/ 
+get_header(); ?>
 
+	<main id="primary" class="site-main">
 
-$categories = get_the_category();
-
-$header_name	=	'header';
-$content_name	=	'content';
-$sidebar_name	=	'sidebar';
-$footer_name	=	'sidebar';
-
-$first_category	= 	$categories[0]->name;
-
-if ( ! empty( $categories ) ) {
-	$header_name	= 	$first_category;
-	$content_name 	= 	'content-' . $first_category;   
-	$sidebar_name	= 	$first_category;
-	$footer_name	= 	$first_category;
-}
-
-
-get_header( $header_name ); ?>
-	<?php if ( ! $first_category = 'nineteeneighty' ) { ?>
-		<main id="primary" class="site-main">
-		?><?php
-	}
+	<?php
 
 	if ( have_posts() ) :
 
@@ -52,10 +25,7 @@ get_header( $header_name ); ?>
 		 * This call runs only once on index and archive pages.
 		 * At some point, override functionality should be built in similar to the template part below.
 		 */
-		
-		if ( ! $first_category = 'nineteeneighty' ) { 
-			wp_print_styles( array( 'veryserious-content' ) ); // Note: If this was already done it will be skipped.
-		}
+		wp_print_styles( array( 'veryserious-content' ) ); // Note: If this was already done it will be skipped.
 
 		/* Display the appropriate header when required. */
 		veryserious_index_header();
@@ -69,9 +39,7 @@ get_header( $header_name ); ?>
 			 * If you want to override this in a child theme, then include a file
 			 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 			 */
-			
-			get_template_part( 'template-parts/' . $content_name, get_post_type() );
-			
+			get_template_part( 'template-parts/content', get_post_type() );
 
 		endwhile;
 
@@ -81,16 +49,13 @@ get_header( $header_name ); ?>
 
 	else :
 
-		get_template_part( 'template-parts/' . $content_name, 'none' );
+		get_template_part( 'template-parts/content', 'none' );
 
 	endif;
 	?>
-	<?php if ( ! $first_category = 'nineteeneighty' ) { ?>
-		</main><!-- #primary --><?php 
-	}?>
+
+	</main><!-- #primary -->
 
 <?php
-if ( ! $first_category = 'nineteeneighty' ) { 
-	get_sidebar( $sidebar_name );
-} 
-get_footer( $footer_name );
+get_sidebar();
+get_footer();
