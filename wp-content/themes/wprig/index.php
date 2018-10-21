@@ -40,10 +40,10 @@ if ( ! empty( $categories ) ) {
 
 
 get_header( $header_name ); ?>
-
-	<main id="primary" class="site-main">
-
-	<?php
+	<?php if ( ! $first_category = 'nineteeneighty' ) { ?>
+		<main id="primary" class="site-main">
+		?><?php
+	}
 
 	if ( have_posts() ) :
 
@@ -85,8 +85,9 @@ get_header( $header_name ); ?>
 
 	endif;
 	?>
-
-	</main><!-- #primary -->
+	<?php if ( ! $first_category = 'nineteeneighty' ) { ?>
+		</main><!-- #primary --><?php 
+	}?>
 
 <?php
 if ( ! $first_category = 'nineteeneighty' ) { 

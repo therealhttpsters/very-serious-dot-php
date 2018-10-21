@@ -52,21 +52,35 @@
 			strip_tags( 
 				$htmlcontent , 
 				'<p><br><li><ul><ol><a><h2><h3><h4><h5><h6><i><b><u><em><strong><span>' 
-			);
+			);	
 
 		$pattern_array = array(
 			array( /* classes */ '/(<[^>]+) class=".*?"/i', '$1' ),
 			array( /* styles */ '/(<[^>]+) style=".*?"/i', '$1' ),
 			array( /* god mode 1 */ '/<([^<\/>]*)>([\s]*?|(?R))<\/\1>/imsU', '' ),
-			array( /* god mode 2 */ '/<([^<\/>]*)>([\s]*?|(?R))<\/\1>/imsU', '' )
+			array( /* god mode 2 */ '/<([^<\/>]*)>([\s]*?|(?R))<\/\1>/imsU', '' ),
 		);
-
 		foreach ( $pattern_array as $pattern ) {
 			$htmlcontent_0 = preg_replace( $pattern[0] , $pattern[1], $htmlcontent_0 );
 		}
 		
-		$htmlcontent_final = $htmlcontent_0 . 
-		'<I>This is article <u>post-' . get_the_ID() . '</u>, written with love :-)</I><BR><BR>';
+		// convert all lower case tags to upper case
+		// todo: Convert this to a regex
+		$htmlcontent_1 = preg_replace_callback(
+				"/(<\/?\w+)(.*?>)/", 
+					function ($m) {
+						  return strtoupper($m[1]) .
+						  $m[2]; 
+						}, 
+					$htmlcontent_0 
+					); 
+
+		// our love <3
+		$htmlcontent_final = 
+			$htmlcontent_1 . 
+			'<I>This is article <U>post-' . 
+			get_the_ID() . 
+			'</U>, written with love :-)</I><BR><BR>';
 
 		echo $htmlcontent_final;
 
@@ -75,9 +89,9 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . 
+				//'before' => '<div class="page-links">' . 
 				esc_html__( 'Pages:', 'veryserious' ),
-				'after'  => '</div>',
+				//'after'  => '</div>',
 			)
 		);
 ?>

@@ -9,21 +9,7 @@
  * @package veryserious
  */
 
-function dq_maker($dscript_array, $dstyle_array) {
-	//var_dump($dscript_array);
-	//die;
-	return function () {
-		foreach ( $dscript_array as $script_item ) {
-			wp_dequeue_script ( $script_item );
-		}
-
-		foreach ( $dstyle_array as $style_item ) {
-			wp_dequeue_style ( $style_item );
-		}		
-	};
-
-}
-
+ // here is a list of scripts to be unloaded
 $dscript_array = [
 	'admin-bar',
 	'veryserious-navigation',
@@ -33,6 +19,7 @@ $dscript_array = [
 	'wp-embed'
 ];
 
+// here is a list of scripts to be unloaded
 $dstyle_array = [
 	'veryserious-content',
 	'admin-bar',
@@ -42,9 +29,38 @@ $dstyle_array = [
 	'current-template-style'
 ];
 
+// passing the above lists to WP to unload items
+add_action( 
+		'wp_enqueue_scripts',
+		new DeQueueQueue( 
+			$dstyle_array, 
+			$dstyle_array 
+		),
+		10, 
+		1 );
+
+function EnQueueQueue()  {
 
 
-add_action( 'wp_enqueue_scripts', dq_maker($dstyle_array, $dstyle_array), 10, 1 );
+		// Add new CSS, cache busters to go!
+		/* $app = '/css/1980.css'; // Local path in theme
+			$appURI = get_stylesheet_directory_uri() . $app;
+			$appPath = get_template_directory() . $app;
+			wp_enqueue_style('app', $appURI , array(), 
+			filemtime( $appPath ) ); */
+		// Note: HTML1 spec predates CSS, so there's no need for a stylesheet.
+			
+		// Add new JS, cache busters to go!
+		/* $app = '/javascript/app.min.js'; // Local path in theme
+			$appURI = get_stylesheet_directory_uri() . $app;
+			$appPath = get_template_directory() . $app;
+		
+			wp_enqueue_script('foundation', $appURI, array(), 
+				filemtime( $appPath ), false);
+		}*/
+}
+add_action( 'wp_enqueue_scripts', 'EnQueueQueue' );
+	
 
 ?>
 <!doctype html>
