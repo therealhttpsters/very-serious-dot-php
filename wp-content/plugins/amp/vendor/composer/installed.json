@@ -70,45 +70,104 @@
         ]
     },
     {
-        "name": "wp-coding-standards/wpcs",
-        "version": "0.14.1",
-        "version_normalized": "0.14.1.0",
+        "name": "sabberworm/php-css-parser",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git",
-            "reference": "cf6b310caad735816caef7573295f8a534374706"
+            "url": "https://github.com/xwp/PHP-CSS-Parser.git",
+            "reference": "bd0c481ba28ccd54bbbb1846a69ead237cd26cd8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/cf6b310caad735816caef7573295f8a534374706",
-            "reference": "cf6b310caad735816caef7573295f8a534374706",
+            "url": "https://api.github.com/repos/xwp/PHP-CSS-Parser/zipball/bd0c481ba28ccd54bbbb1846a69ead237cd26cd8",
+            "reference": "bd0c481ba28ccd54bbbb1846a69ead237cd26cd8",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3",
-            "squizlabs/php_codesniffer": "^2.9.0 || ^3.0.2"
+            "php": ">=5.3.2"
         },
-        "suggest": {
-            "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3"
+        "require-dev": {
+            "phpunit/phpunit": "~4.8"
         },
-        "time": "2018-02-16T01:57:48+00:00",
-        "type": "phpcodesniffer-standard",
-        "installation-source": "dist",
-        "notification-url": "https://packagist.org/downloads/",
+        "time": "2018-09-06T16:11:27+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Sabberworm\\CSS": "lib/"
+            }
+        },
         "license": [
             "MIT"
         ],
         "authors": [
             {
-                "name": "Contributors",
-                "homepage": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/graphs/contributors"
+                "name": "Raphael Schweikert"
             }
         ],
-        "description": "PHP_CodeSniffer rules (sniffs) to enforce WordPress coding conventions",
+        "description": "Parser for CSS Files written in PHP",
+        "homepage": "http://www.sabberworm.com/blog/2010/6/10/php-css-parser",
+        "keywords": [
+            "css",
+            "parser",
+            "stylesheet"
+        ],
+        "support": {
+            "source": "https://github.com/xwp/PHP-CSS-Parser/tree/master"
+        }
+    },
+    {
+        "name": "squizlabs/php_codesniffer",
+        "version": "3.3.1",
+        "version_normalized": "3.3.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
+            "reference": "628a481780561150481a9ec74709092b9759b3ec"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/628a481780561150481a9ec74709092b9759b3ec",
+            "reference": "628a481780561150481a9ec74709092b9759b3ec",
+            "shasum": ""
+        },
+        "require": {
+            "ext-simplexml": "*",
+            "ext-tokenizer": "*",
+            "ext-xmlwriter": "*",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
+        },
+        "time": "2018-07-26T23:47:18+00:00",
+        "bin": [
+            "bin/phpcs",
+            "bin/phpcbf"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Greg Sherwood",
+                "role": "lead"
+            }
+        ],
+        "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+        "homepage": "http://www.squizlabs.com/php-codesniffer",
         "keywords": [
             "phpcs",
-            "standards",
-            "wordpress"
+            "standards"
         ]
     },
     {
@@ -167,104 +226,45 @@
         ]
     },
     {
-        "name": "squizlabs/php_codesniffer",
-        "version": "3.3.1",
-        "version_normalized": "3.3.1.0",
+        "name": "wp-coding-standards/wpcs",
+        "version": "0.14.1",
+        "version_normalized": "0.14.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-            "reference": "628a481780561150481a9ec74709092b9759b3ec"
+            "url": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git",
+            "reference": "cf6b310caad735816caef7573295f8a534374706"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/628a481780561150481a9ec74709092b9759b3ec",
-            "reference": "628a481780561150481a9ec74709092b9759b3ec",
+            "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/cf6b310caad735816caef7573295f8a534374706",
+            "reference": "cf6b310caad735816caef7573295f8a534374706",
             "shasum": ""
         },
         "require": {
-            "ext-simplexml": "*",
-            "ext-tokenizer": "*",
-            "ext-xmlwriter": "*",
-            "php": ">=5.4.0"
+            "php": ">=5.3",
+            "squizlabs/php_codesniffer": "^2.9.0 || ^3.0.2"
         },
-        "require-dev": {
-            "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
+        "suggest": {
+            "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3"
         },
-        "time": "2018-07-26T23:47:18+00:00",
-        "bin": [
-            "bin/phpcs",
-            "bin/phpcbf"
-        ],
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.x-dev"
-            }
-        },
+        "time": "2018-02-16T01:57:48+00:00",
+        "type": "phpcodesniffer-standard",
         "installation-source": "dist",
         "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Greg Sherwood",
-                "role": "lead"
-            }
-        ],
-        "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
-        "homepage": "http://www.squizlabs.com/php-codesniffer",
-        "keywords": [
-            "phpcs",
-            "standards"
-        ]
-    },
-    {
-        "name": "sabberworm/php-css-parser",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/xwp/PHP-CSS-Parser.git",
-            "reference": "f453b4b534d06e9b4512388f801413a4fa9a9d42"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/xwp/PHP-CSS-Parser/zipball/f453b4b534d06e9b4512388f801413a4fa9a9d42",
-            "reference": "f453b4b534d06e9b4512388f801413a4fa9a9d42",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.8"
-        },
-        "time": "2018-09-03T17:23:45+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Sabberworm\\CSS": "lib/"
-            }
-        },
         "license": [
             "MIT"
         ],
         "authors": [
             {
-                "name": "Raphael Schweikert"
+                "name": "Contributors",
+                "homepage": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/graphs/contributors"
             }
         ],
-        "description": "Parser for CSS Files written in PHP",
-        "homepage": "http://www.sabberworm.com/blog/2010/6/10/php-css-parser",
+        "description": "PHP_CodeSniffer rules (sniffs) to enforce WordPress coding conventions",
         "keywords": [
-            "css",
-            "parser",
-            "stylesheet"
-        ],
-        "support": {
-            "source": "https://github.com/xwp/PHP-CSS-Parser/tree/master"
-        }
+            "phpcs",
+            "standards",
+            "wordpress"
+        ]
     }
 ]
