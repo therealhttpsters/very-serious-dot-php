@@ -32,15 +32,17 @@ $footer_name	=	'sidebar';
 $first_category	= 	$categories[0]->name;
 
 if ( ! empty( $categories ) ) {
-	$header_name	= 	$first_category;
-	$content_name 	= 	'content-' . $first_category;   
-	$sidebar_name	= 	$first_category;
-	$footer_name	= 	$first_category;
+	if ( ! $first_category = 'modern' ) { // Modern breaks the rules
+		$header_name	= 	$first_category;
+		$content_name 	= 	'content-' . $first_category;   
+		$sidebar_name	= 	$first_category;
+		$footer_name	= 	$first_category;
+	}
 }
 
 
 get_header( $header_name ); ?>
-	<?php if ( ! $first_category = 'nineteeneighty' ) { ?>
+	<?php if ( ! $first_category = 'nineteeneighty' ) { // No CSS or semantics ?>
 		<main id="primary" class="site-main">
 		?><?php
 	}
