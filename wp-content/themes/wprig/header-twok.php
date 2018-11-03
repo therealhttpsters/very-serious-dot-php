@@ -71,10 +71,6 @@ add_action( 'wp_enqueue_scripts', 'EnQueueQueue' );
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
-	<?php if ( ! veryserious_is_amp() ) : ?>
-		<script>document.documentElement.classList.remove("no-js");</script>
-	<?php endif; ?>
-
 	<?php wp_head(); ?>
 
 </head>

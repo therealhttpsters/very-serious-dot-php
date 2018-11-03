@@ -198,7 +198,7 @@ function veryserious_setup() {
 	 * @link https://wordpress.org/plugins/amp/
 	 */
 	add_theme_support( 'amp', array(
-		'comments_live_list' => true,
+		'paired' => true,
 	) );
 
 }
