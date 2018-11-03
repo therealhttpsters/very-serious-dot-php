@@ -24,22 +24,21 @@
 
 $categories = get_the_category();
 
-$header_name	=	'header';
-$content_name	=	'content';
-$sidebar_name	=	'sidebar';
-$footer_name	=	'sidebar';
-
 $first_category	= 	$categories[0]->name;
 
 if ( ! empty( $categories ) ) {
-	if ( ! $first_category = 'modern' ) { // Modern breaks the rules
 		$header_name	= 	$first_category;
 		$content_name 	= 	'content-' . $first_category;   
 		$sidebar_name	= 	$first_category;
 		$footer_name	= 	$first_category;
-	}
-}
 
+		if ( $first_category == 'modern' ) { // Modern breaks the rules
+			$header_name	=	'';
+			$content_name	=	'content';
+			$sidebar_name	=	'sidebar';
+			$footer_name	=	'footer';
+		}
+}
 
 get_header( $header_name ); ?>
 	<?php if ( ! $first_category = 'nineteeneighty' ) { // No CSS or semantics ?>
